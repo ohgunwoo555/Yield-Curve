@@ -1,26 +1,32 @@
+import { createFredSource } from "./fred";
 import type { YieldSource } from "./types";
 
 /**
  * 등록된 YieldSource 목록.
- * 새 국가 추가 = 구현체를 만들고 여기에 등록 + countries 시드 추가.
- * API 키는 호출 시점에 env에서 읽으므로 모듈 로드 시 부작용이 없다.
+ * 새 국가 추가 = 구현체를 만들고 이 목록에 팩토리 추가 + countries 시드 추가.
+ * API 키는 팩토리 호출 시점에 env에서 읽으므로 모듈 로드 시 부작용이 없다.
  */
-type SourceFactory = () => YieldSource;
+type SourceFactory = { countryCode: string; create: () => YieldSource };
 
-const factories: SourceFactory[] = [];
-
-export function registerSource(factory: SourceFactory): void {
-  factories.push(factory);
-}
+const factories: SourceFactory[] = [
+  { countryCode: "US", create: () => createFredSource(requireEnv("FRED_API_KEY")) },
+];
 
 export function getSources(): YieldSource[] {
-  return factories.map((f) => f());
+  return factories.map((f) => f.create());
 }
 
 export function getSource(countryCode: string): YieldSource | undefined {
-  return getSources().find((s) => s.countryCode === countryCode);
+  const f = factories.find((x) => x.countryCode === countryCode);
+  return f?.create();
 }
 
 export function getRegisteredCountryCodes(): string[] {
-  return getSources().map((s) => s.countryCode);
+  return factories.map((f) => f.countryCode);
+}
+
+function requireEnv(name: string): string {
+  const v = process.env[name];
+  if (!v) throw new Error(`${name} 환경변수가 설정되지 않았습니다.`);
+  return v;
 }
