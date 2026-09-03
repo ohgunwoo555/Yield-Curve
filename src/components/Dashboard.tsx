@@ -9,6 +9,7 @@ import type { Meta } from "@/lib/meta";
 import { isTenor, type Tenor } from "@/lib/tenors";
 import { CountryTabs } from "./CountryTabs";
 import { DatePicker } from "./DatePicker";
+import { TenorDrawer } from "./TenorDrawer";
 import { YieldTable } from "./YieldTable";
 
 export type DashboardProps = {
@@ -116,6 +117,9 @@ export function Dashboard(props: DashboardProps) {
     if (!isTenor(t)) return;
     setTenor((prev) => (prev === t ? null : t));
   }, []);
+  const closeDrawer = useCallback(() => setTenor(null), []);
+
+  const selectedRow = tenor && data ? data.rows.find((r) => r.tenor === tenor) : undefined;
 
   const adjusted = data && data.effectiveDate !== data.requestedDate;
   const sourceLabel = meta.sources
@@ -165,6 +169,18 @@ export function Dashboard(props: DashboardProps) {
           <YieldTable data={data} selectedTenor={tenor} onSelectTenor={handleTenor} />
         )}
       </section>
+
+      {tenor && data && countryMeta && selectedRow && selectedRow.value !== null && (
+        <TenorDrawer
+          countryCode={country}
+          countryName={countryMeta.nameKo}
+          tenor={tenor}
+          effectiveDate={data.effectiveDate}
+          latestDate={countryMeta.latestDate}
+          value={selectedRow.value}
+          onClose={closeDrawer}
+        />
+      )}
 
       <footer className="mt-6 border-t border-neutral-200 pt-3 text-xs text-neutral-500">
         데이터: {sourceLabel} · 최근 적재 {formatKstDateTime(meta.lastIngestedAt)}
