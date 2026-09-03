@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        # 버전은 package.json의 packageManager 필드에서 읽는다.
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+        env:
+          # 빌드는 DB 연결 없이 성공해야 한다. 시크릿은 CI에 두지 않는다.
+          NEXT_TELEMETRY_DISABLED: "1"
