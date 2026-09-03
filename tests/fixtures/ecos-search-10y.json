@@ -1,0 +1,13 @@
+{
+  "StatisticSearch": {
+    "list_total_count": 6,
+    "row": [
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260825", "DATA_VALUE": "3.512" },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260826", "DATA_VALUE": "3.498" },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260827", "DATA_VALUE": "3.52" },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260828", "DATA_VALUE": "" },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260831", "DATA_VALUE": "3.535" },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "ITEM_CODE1": "010210000", "ITEM_NAME1": "국고채(10년)", "ITEM_CODE2": null, "ITEM_NAME2": null, "ITEM_CODE3": null, "ITEM_NAME3": null, "ITEM_CODE4": null, "ITEM_NAME4": null, "UNIT_NAME": "%", "WGT": null, "TIME": "20260901", "DATA_VALUE": "3.541" }
+    ]
+  }
+}

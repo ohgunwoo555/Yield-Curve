@@ -1,3 +1,4 @@
+import { createEcosSource } from "./ecos";
 import { createFredSource } from "./fred";
 import type { YieldSource } from "./types";
 
@@ -10,6 +11,7 @@ type SourceFactory = { countryCode: string; create: () => YieldSource };
 
 const factories: SourceFactory[] = [
   { countryCode: "US", create: () => createFredSource(requireEnv("FRED_API_KEY")) },
+  { countryCode: "KR", create: () => createEcosSource(requireEnv("ECOS_API_KEY")) },
 ];
 
 export function getSources(): YieldSource[] {

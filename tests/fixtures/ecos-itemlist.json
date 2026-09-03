@@ -1,0 +1,19 @@
+{
+  "StatisticItemList": {
+    "list_total_count": 12,
+    "row": [
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010101000", "ITEM_NAME": "콜금리(1일, 전체거래)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "19950103", "END_TIME": "20260901", "DATA_CNT": 7800, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010502000", "ITEM_NAME": "CD(91일)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "19950103", "END_TIME": "20260901", "DATA_CNT": 7800, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010190000", "ITEM_NAME": "국고채(1년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "19950103", "END_TIME": "20260901", "DATA_CNT": 7800, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010195000", "ITEM_NAME": "국고채(2년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20200101", "END_TIME": "20260901", "DATA_CNT": 1650, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010200000", "ITEM_NAME": "국고채(3년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "19950103", "END_TIME": "20260901", "DATA_CNT": 7800, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010200001", "ITEM_NAME": "국고채(5년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20000101", "END_TIME": "20260901", "DATA_CNT": 6600, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010210000", "ITEM_NAME": "국고채(10년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20001001", "END_TIME": "20260901", "DATA_CNT": 6400, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010220000", "ITEM_NAME": "국고채(20년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20060101", "END_TIME": "20260901", "DATA_CNT": 5100, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010230000", "ITEM_NAME": "국고채(30년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20120911", "END_TIME": "20260901", "DATA_CNT": 3450, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010260000", "ITEM_NAME": "국고채(50년)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20161011", "END_TIME": "20260901", "DATA_CNT": 2400, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010300000", "ITEM_NAME": "회사채(3년, AA-)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "19950103", "END_TIME": "20260901", "DATA_CNT": 7800, "UNIT_NAME": "%", "WEIGHT": null },
+      { "STAT_CODE": "817Y002", "STAT_NAME": "1.3.2.2. 시장금리(일별)", "GRP_CODE": "Group1", "GRP_NAME": "계정항목", "ITEM_CODE": "010400000", "ITEM_NAME": "회사채(3년, BBB-)", "P_ITEM_CODE": null, "P_ITEM_NAME": null, "CYCLE": "D", "START_TIME": "20000101", "END_TIME": "20260901", "DATA_CNT": 6600, "UNIT_NAME": "%", "WEIGHT": null }
+    ]
+  }
+}
