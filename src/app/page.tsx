@@ -1,6 +1,6 @@
 import { Dashboard } from "@/components/Dashboard";
 import type { ChangesResult } from "@/lib/changes";
-import { isIsoDate } from "@/lib/dates";
+import { isIsoDate, todayIsoKst } from "@/lib/dates";
 import { getDb } from "@/lib/db/client";
 import { getChanges } from "@/lib/db/queries";
 import { getMeta, type Meta } from "@/lib/meta";
@@ -32,7 +32,10 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
   let initialData: ChangesResult | null = null;
   let initialError: string | null = null;
   let country = first(sp.country)?.toUpperCase() ?? "US";
+  const today = todayIsoKst();
+  // 기준일 기본값은 오늘(KST). 오늘 데이터가 없으면 API가 이하 최근 영업일로 보정한다.
   let date = first(sp.date) ?? "";
+  if (!isIsoDate(date) || date > today) date = today;
 
   try {
     const db = getDb();
@@ -40,9 +43,7 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
     const known = meta.countries.find((c) => c.code === country) ?? meta.countries[0];
     if (known) {
       country = known.code;
-      if (!isIsoDate(date)) date = known.latestDate ?? date;
-      if (known.latestDate && date > known.latestDate) date = known.latestDate;
-      if (date) initialData = await getChanges(db, country, date);
+      initialData = await getChanges(db, country, date);
     }
   } catch (err) {
     console.error(err);
@@ -58,6 +59,7 @@ export default async function HomePage({ searchParams }: { searchParams: SearchP
         meta={meta}
         initialCountry={country}
         initialDate={date}
+        today={today}
         initialTenor={initialTenor}
         initialData={initialData}
         initialError={initialError}

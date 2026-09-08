@@ -59,7 +59,8 @@ pnpm seed              # countries 마스터 시드 (US, KR)
 
 | 변수 | 설명 |
 |---|---|
-| `DATABASE_URL` | Supabase Postgres 연결 문자열. **Transaction pooler(port 6543)** 주소를 쓴다. Supabase 대시보드 → Project Settings → Database → Connection string → Transaction. |
+| `DATABASE_URL` | Supabase Postgres 연결 문자열. **Transaction pooler(port 6543)** 주소를 쓴다. Supabase 대시보드 → Connect → Connection string → Transaction pooler. |
+| `DIRECT_URL` | (선택) `pnpm db:migrate` 전용. 같은 화면의 **Session pooler(port 5432)** 주소. 비워 두면 `DATABASE_URL`을 쓴다. Vercel에는 등록할 필요 없다. |
 | `FRED_API_KEY` | https://fred.stlouisfed.org/docs/api/api_key.html 에서 무료 발급 (계정 필요). |
 | `ECOS_API_KEY` | https://ecos.bok.or.kr → 로그인 → 마이페이지 → 인증키 신청. 승인까지 보통 하루 이내. |
 | `CRON_SECRET` | 크론 엔드포인트 보호용 랜덤 문자열. `openssl rand -hex 32` 등으로 생성. Vercel은 이 값을 크론 호출 헤더에 자동으로 넣어준다. |

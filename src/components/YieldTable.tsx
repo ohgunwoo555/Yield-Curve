@@ -19,6 +19,7 @@ type Props = {
 
 export function YieldTable({ data, selectedTenor, onSelectTenor }: Props) {
   return (
+    <div>
     <table className="w-full table-fixed border-collapse text-xs sm:text-sm">
       <colgroup>
         <col className="w-[13%]" />
@@ -83,5 +84,9 @@ export function YieldTable({ data, selectedTenor, onSelectTenor }: Props) {
         })}
       </tbody>
     </table>
+    <p className="mt-2 text-[11px] text-neutral-500">
+      등락 단위는 bp(1bp = 0.01%p), 소수점 1자리. 예: +0.4 = 0.4bp 상승. 상승 빨강, 하락 파랑.
+    </p>
+    </div>
   );
 }

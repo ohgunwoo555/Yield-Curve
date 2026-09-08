@@ -44,3 +44,12 @@ describe("dates", () => {
     expect(formatKoWithWeekday("2026-09-04")).toBe("2026-09-04(금)");
   });
 });
+
+describe("todayIsoKst", () => {
+  it("UTC 23:00 = KST 다음날 08:00", async () => {
+    const { todayIsoKst } = await import("@/lib/dates");
+    expect(todayIsoKst(new Date("2026-09-07T23:30:00Z"))).toBe("2026-09-08");
+    expect(todayIsoKst(new Date("2026-09-08T14:59:00Z"))).toBe("2026-09-08");
+    expect(todayIsoKst(new Date("2026-09-08T15:00:00Z"))).toBe("2026-09-09");
+  });
+});

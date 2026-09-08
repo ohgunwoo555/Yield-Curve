@@ -39,6 +39,21 @@ export function todayIso(now: Date = new Date()): IsoDate {
   return formatIsoDate(now);
 }
 
+/**
+ * 한국 시간(Asia/Seoul) 기준 오늘 날짜.
+ * 서버(Vercel)는 UTC로 돌기 때문에 KST 아침에는 로컬 날짜가 하루 전이 된다.
+ */
+export function todayIsoKst(now: Date = new Date()): IsoDate {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const get = (t: string) => parts.find((x) => x.type === t)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
 export function addDaysIso(date: IsoDate, days: number): IsoDate {
   return formatIsoDate(addDays(parseIsoDate(date), days));
 }
