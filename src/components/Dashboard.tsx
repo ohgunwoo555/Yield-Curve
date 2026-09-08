@@ -147,9 +147,9 @@ export function Dashboard(props: DashboardProps) {
           <p className="mb-2 text-xs text-neutral-500">
             {countryMeta.nameKo} · 최근 데이터: {countryMeta.latestDate ?? "-"}
             {adjusted && data && (
-              <span className="ml-2 rounded bg-amber-50 px-1.5 py-0.5 text-amber-700">
-                기준일 {formatKoWithWeekday(data.requestedDate)} →{" "}
-                {formatKoWithWeekday(data.effectiveDate)} 데이터 표시
+              <span className="mt-1 block w-fit rounded bg-amber-50 px-1.5 py-0.5 text-amber-700 sm:ml-2 sm:mt-0 sm:inline">
+                기준일 <span className="whitespace-nowrap">{formatKoWithWeekday(data.requestedDate)}</span> →{" "}
+                <span className="whitespace-nowrap">{formatKoWithWeekday(data.effectiveDate)}</span> 데이터 표시
               </span>
             )}
           </p>
