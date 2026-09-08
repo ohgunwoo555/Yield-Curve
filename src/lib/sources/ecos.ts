@@ -17,12 +17,11 @@ export const ECOS_PAGE_SIZE = 1000;
 /**
  * 만기 → ECOS 항목명·항목코드.
  *
- * itemCode는 "예상값"이다. 이 저장소가 만들어진 환경에서는 ecos.bok.or.kr 로의
- * 아웃바운드 연결이 차단되어 StatisticItemList 호출로 검증하지 못했다(2026-09-03).
- * 그래서 소스는 실행 시점에 StatisticItemList를 호출해 ITEM_NAME 기준으로 실제
- * 코드를 확정하며(resolveEcosItemCodes), 예상값과 다르면 경고만 남기고 실제 코드를 쓴다.
- * `pnpm ecos:items` 로 항목 목록과 매핑 결과를 직접 확인할 수 있다.
- * 검증 후에는 이 주석을 확인 날짜와 함께 갱신할 것.
+ * 2026-09-08 `pnpm ecos:items`로 StatisticItemList(817Y002)를 실제 호출해 검증했다.
+ * 항목 27개 중 국고채(1년/2년/3년/5년/10년/20년/30년) 7개의 ITEM_CODE가 아래와 모두 일치했다.
+ *
+ * 소스는 실행 시점에도 StatisticItemList를 호출해 ITEM_NAME 기준으로 실제 코드를 확정하며
+ * (resolveEcosItemCodes), 아래 값과 다르면 경고를 남기고 실제 코드를 쓴다.
  */
 export const ECOS_ITEMS = {
   "1Y": { itemName: "국고채(1년)", itemCode: "010190000" },
