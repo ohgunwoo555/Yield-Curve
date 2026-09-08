@@ -13,7 +13,7 @@ const LOOKBACK_DAYS = 10;
 
 /**
  * GET /api/cron/ingest
- * Vercel Cron이 매일 UTC 23:00(KST 08:00)에 호출한다.
+ * Vercel Cron이 매일 UTC 21:30(KST 06:30)에 호출한다.
  * 인증: Authorization: Bearer ${CRON_SECRET}
  */
 export async function GET(req: NextRequest) {
