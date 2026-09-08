@@ -16,6 +16,8 @@ export type DashboardProps = {
   meta: Meta;
   initialCountry: string;
   initialDate: string;
+  /** 오늘(KST). 기준일 선택 상한. */
+  today: string;
   initialTenor: Tenor | null;
   initialData: ChangesResult | null;
   initialError: string | null;
@@ -23,15 +25,14 @@ export type DashboardProps = {
 
 type Status = "idle" | "loading" | "error" | "empty";
 
-function clampDate(date: string, c: CountryMeta | undefined): string {
-  if (!c) return date;
-  if (c.latestDate && date > c.latestDate) return c.latestDate;
-  if (c.firstDate && date < c.firstDate) return c.firstDate;
+function clampDate(date: string, today: string, c: CountryMeta | undefined): string {
+  if (date > today) return today;
+  if (c?.firstDate && date < c.firstDate) return c.firstDate;
   return date;
 }
 
 export function Dashboard(props: DashboardProps) {
-  const { meta } = props;
+  const { meta, today } = props;
   const [country, setCountry] = useState(props.initialCountry);
   const [date, setDate] = useState(props.initialDate);
   const [tenor, setTenor] = useState<Tenor | null>(props.initialTenor);
@@ -101,16 +102,16 @@ export function Dashboard(props: DashboardProps) {
       if (code === country) return;
       const next = meta.countries.find((c) => c.code === code);
       setCountry(code);
-      setDate((d) => clampDate(d, next));
+      setDate((d) => clampDate(d, today, next));
       // 새 국가가 제공하지 않는 만기면 선택 해제
       setTenor((t) => (t && next?.tenors.includes(t) ? t : null));
     },
-    [country, meta.countries],
+    [country, meta.countries, today],
   );
 
   const handleDate = useCallback(
-    (d: string) => setDate(clampDate(d, countryMeta)),
-    [countryMeta],
+    (d: string) => setDate(clampDate(d, today, countryMeta)),
+    [countryMeta, today],
   );
 
   const handleTenor = useCallback((t: Tenor) => {
@@ -136,7 +137,7 @@ export function Dashboard(props: DashboardProps) {
         <DatePicker
           value={date}
           min={countryMeta?.firstDate ?? null}
-          max={countryMeta?.latestDate ?? null}
+          max={today}
           onChange={handleDate}
         />
       </header>

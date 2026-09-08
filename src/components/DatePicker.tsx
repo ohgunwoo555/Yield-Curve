@@ -30,7 +30,7 @@ export function DatePicker({ value, min, max, onChange }: Props) {
           onClick={() => onChange(max)}
           className="text-xs text-neutral-500 underline-offset-2 hover:text-neutral-800 hover:underline"
         >
-          최신
+          오늘
         </button>
       )}
     </div>

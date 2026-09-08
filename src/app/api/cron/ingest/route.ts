@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { jsonError } from "@/lib/api";
-import { subDaysIso, todayIso } from "@/lib/dates";
+import { subDaysIso, todayIsoKst } from "@/lib/dates";
 import { getDb } from "@/lib/db/client";
 import { ingestSource, type IngestResult } from "@/lib/ingest";
 import { getRegisteredCountryCodes, getSource } from "@/lib/sources/registry";
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
   const auth = req.headers.get("authorization") ?? "";
   if (auth !== `Bearer ${secret}`) return jsonError(401, "인증에 실패했습니다.");
 
-  const to = todayIso();
+  const to = todayIsoKst();
   const from = subDaysIso(to, LOOKBACK_DAYS);
   const startedAt = new Date();
 
